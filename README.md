@@ -119,5 +119,5 @@ Il progetto si pone dunque come obiettivo quello di fornire un supporto per rend
 *__Implementazione finale del codice__
 *__Testing__
 
-[C3-Frontend](https://github.com/nicolas-cotichini/c3-pwa.git)
+[C3-Frontend](https://github.com/nicolas-cotichini/C3-PWA)
 ---
