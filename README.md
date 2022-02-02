@@ -91,7 +91,7 @@ Il progetto si pone dunque come obiettivo quello di fornire un supporto per rend
 
 ## Iterazione 3
 
-*__Identificazione nuovo attore__: User.
+*__Identificazione nuovo attore__: User.  
 *__Rielaborazione casi d'uso precedenti e conclusione di specifiche e dettagli__.
 *__Identificazione ultimi casi d'uso__:
 
