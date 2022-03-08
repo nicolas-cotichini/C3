@@ -99,11 +99,11 @@ class ClienteTest {
 		//Attiva profilo Corriere
 		Corriere corriere = (Corriere) userSer.getById(5L);
 		assertNotNull(corriere);
-		try {
-			corriereSer.setOperativo(corriere.getId());
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
+		if (corriere.getOperativo()) {} else
+			try {
+				corriereSer.setOperativo(corriere.getId());
+			} catch (Exception e1) {
+			}
 		try {
 			clienteSer.creaOrdine(ordine.getId(), 7L);
 		} catch (Exception e) {fail(e.getMessage());}
@@ -133,7 +133,9 @@ class ClienteTest {
 		List<Ordine> ordini = clienteSer.getAllOrdiniCliente(idCliente );
 		Ordine ordine = ordini.get(0);
 		try {
+			//consegnato
 			ordineSer.setStatoOrdine(ordine.getId());
+			//ritirato
 			ordineSer.setStatoOrdine(ordine.getId());
 		} catch (Exception e) {
 			fail(e.getMessage());

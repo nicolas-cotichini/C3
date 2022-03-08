@@ -135,6 +135,7 @@ public class CorriereTest {
 		}
 		ordini = clienteSer.getAllOrdiniCliente(2L);
 		ordine = ordini.get(1);
+		assertNotNull(ordine);
 		
 		//Affida l'Ordine al secondo Corriere creato in quanto
 		//quello con la lista consegna minore
