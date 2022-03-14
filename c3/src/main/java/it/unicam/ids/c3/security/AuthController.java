@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -54,15 +53,6 @@ public class AuthController {
 		return ResponseEntity.ok(
 				new AuthResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
 
-	}
-
-	@GetMapping("/refresh")
-	public ResponseEntity<?> refresh() {
-		String jwt = jwtUtils.generateJwtToken(SecurityContextHolder.getContext().getAuthentication());
-		if (jwtUtils.refreshJwtToken(jwt))
-			return ResponseEntity.ok().body(HttpStatus.OK);
-		else
-			return ResponseEntity.badRequest().body(HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/profilo")
