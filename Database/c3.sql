@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 02, 2022 alle 11:49
+-- Creato il: Mar 16, 2022 alle 19:38
 -- Versione del server: 10.4.18-MariaDB
 -- Versione PHP: 8.0.3
 
@@ -59,7 +59,7 @@ CREATE TABLE `amministratore` (
 --
 
 INSERT INTO `amministratore` (`id`, `attivo`, `cognome`, `email`, `nome`, `password`, `ruolo`) VALUES
-(1, b'1', 'Tore', 'amministratore@ccc.com', 'Amministra', '$2a$10$BWYDfzolflBOavloFRb2LOTy3pZv3PUD5L1OOXCVUi2rn89opiLp2', 'AMMINISTRATORE');
+(1, b'1', 'Tore', 'amministratore@ccc.com', 'Amministra', '$2a$10$ib5nAq6oZHgXr3TPnxk.zuqQbLaZZZ6Yx03FzoIFR91kdzyExkLU.', 'AMMINISTRATORE');
 
 -- --------------------------------------------------------
 
@@ -80,36 +80,36 @@ CREATE TABLE `cella` (
 --
 
 INSERT INTO `cella` (`id`, `id_locker`, `id_ordine`, `libero`, `password`) VALUES
-(9, 8, NULL, b'1', '82367096'),
-(10, 8, NULL, b'1', '07402721'),
-(11, 8, NULL, b'1', '42909020'),
-(12, 8, NULL, b'1', '85324971'),
-(13, 8, NULL, b'1', '06944701'),
-(14, 8, NULL, b'1', '57874637'),
-(15, 8, NULL, b'1', '54997173'),
-(16, 8, NULL, b'1', '53121654'),
-(17, 8, NULL, b'1', '04583776'),
-(18, 8, NULL, b'1', '58213003'),
-(19, 8, NULL, b'1', '15894139'),
-(20, 8, NULL, b'1', '12964842'),
-(21, 8, NULL, b'1', '30574400'),
-(22, 8, NULL, b'1', '54216585'),
-(23, 8, NULL, b'1', '16640698'),
-(24, 8, NULL, b'1', '84728375'),
-(25, 8, NULL, b'1', '50973430'),
-(26, 8, NULL, b'1', '09160435'),
-(27, 8, NULL, b'1', '20989524'),
-(28, 8, NULL, b'1', '38146975'),
-(29, 8, NULL, b'1', '88855295'),
-(30, 8, NULL, b'1', '62022145'),
-(31, 8, NULL, b'1', '79284073'),
-(32, 8, NULL, b'1', '44504985'),
-(33, 8, NULL, b'1', '72160426'),
-(34, 8, NULL, b'1', '34653186'),
-(35, 8, NULL, b'1', '94141954'),
-(36, 8, NULL, b'1', '56939670'),
-(37, 8, NULL, b'1', '12902249'),
-(38, 8, NULL, b'1', '97429236');
+(9, 8, NULL, b'1', '5d161942ea72acc0b78948f639037da157c903d467755c42917391e394d4ce80'),
+(10, 8, NULL, b'1', 'c4bcbac228a4ba98554c6c6159aa94f17153234f2d6fba4cd8360a8b62719d09'),
+(11, 8, NULL, b'1', '478ca66f6cd11ad13bcb7fd19777abcc0d74f9ed4c5dd20bb53d480eb2c9f4c8'),
+(12, 8, NULL, b'1', '009d5391b8556bac20165d580dec5d6207e4a9b9091ec268081a035607857c76'),
+(13, 8, NULL, b'1', '9df9a78cea87992667510444d3119e39e1e45f46b247d0a45848ce5be465ab4b'),
+(14, 8, NULL, b'1', '1c0a7f4f91fef4fecbaafe630b2aacad0f68c479dce2b00de2e5496cf5a7ceee'),
+(15, 8, NULL, b'1', '08bae41b9a7e0819963af4242e969d83b3aee0387cd6c47dacd3c7be19171e8d'),
+(16, 8, NULL, b'1', 'dc447e11698b8bfcabbdefbbaa65db69fc90f873c684fb4e457a2a6944bc60a2'),
+(17, 8, NULL, b'1', '998b909e37eae46fce4411cd80f6d3b0ab47d2317587e94459000174ccf0f63d'),
+(18, 8, NULL, b'1', '76f1f8d0e27f8e6513935f26f00a6503f3f56085691e36ec7b80f55723facdf8'),
+(19, 8, NULL, b'1', '89551092131da289c66336163af333dcca7cd7fb5500bdd7555ac00822e3be03'),
+(20, 8, NULL, b'1', 'd8a18da1da6f572f284bf01e818bc6e7402c27c349f7135d7b9016b801bc5f25'),
+(21, 8, NULL, b'1', '0f58c78b36876d8e11b907e1e5c4df3413da84cbcb820bcc32d3419fbd2b4ea8'),
+(22, 8, NULL, b'1', '390a9b8bb2c23cd88bcea5c9624c2a4dc2a2488ce55b8e887987cc82eb018f96'),
+(23, 8, NULL, b'1', '912a272b1eee51d6abc3b2fefb13d726e76c4deb15605ada40e83e417f06f917'),
+(24, 8, NULL, b'1', '520d05c8bc18bbf5cfa3e291b63b30b30e3e230f466a0d011c24552b4848999c'),
+(25, 8, NULL, b'1', '08dc07791d3798cd71658356fad0a11a5a3fb288bfe16ed3c0f4083a205152e9'),
+(26, 8, NULL, b'1', 'ae599445bf54a03cf6c5819def3fb7de893a751ceb92a9f28f90318ff1670ef4'),
+(27, 8, NULL, b'1', 'b3687ece1e0063b28472851065aff93d11fff64f05d1654bd61ba39e27f32812'),
+(28, 8, NULL, b'1', 'c114e39e5369d5953fe7a356032bfed26ae56cbdbec8d1c787b184a95d7faf74'),
+(29, 8, NULL, b'1', 'aa4cefdf035763d64b6e153b574885cba98656f9d47bd593c52d075f6430a9c1'),
+(30, 8, NULL, b'1', '2b7a9f15148ffdf52772aa12a9eb1a261655a2478ef74c897389d9c8655a1127'),
+(31, 8, NULL, b'1', '0698a2982a2edd3c4503c470f769eee8d5bf040a4218dbfbb9f45ca690ecd7ec'),
+(32, 8, NULL, b'1', '7fd13b41f23aae70f85f1e512b8b493afd241226094f77cf70791ad65c4c0a35'),
+(33, 8, NULL, b'1', '9e48b38d233bae7272bbeca9af139d109e8d5d74b354b8961d0115aadaf40706'),
+(34, 8, NULL, b'1', '3d9ea6f920ff76d37d1abd19faaf3958034c5a54e2e4f48bdad914e12fdd0d93'),
+(35, 8, NULL, b'1', '1e7fa8f2f6fe2191dba1f1d41c4408c1d27df5b13b50088d2dc308150c7f95d0'),
+(36, 8, NULL, b'1', '90999f9871772cc4f72b2ef74e6d414a7054919383d7a49c22dec85a83ec553b'),
+(37, 8, NULL, b'1', '46c44bcb545fb3b1f8705e89d4d302c931192385d435061757e56eb2e3a51e7c'),
+(38, 8, NULL, b'1', '0cee07564d697a3005576efb0ea7b9475fbeb2eae271ea3ee64eb6f481b3a818');
 
 -- --------------------------------------------------------
 
@@ -132,7 +132,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `attivo`, `cognome`, `email`, `nome`, `password`, `ruolo`) VALUES
-(2, b'1', 'Cognome', 'cliente@gmail.com', 'Cliente', '$2a$10$Qzb/1iwyMs7gTy7doyHCY.lhG4K9tY9A96jHBleraEaZhviSGhPAy', 'CLIENTE');
+(2, b'1', 'Cognome', 'cliente@gmail.com', 'Cliente', '$2a$10$ubCn6M8PQP6M8BwA1StzPOB2M3.dFAyDunmvGEdxP8XPYMg66ZQwK', 'CLIENTE');
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ CREATE TABLE `commerciante` (
 --
 
 INSERT INTO `commerciante` (`id`, `attivo`, `cognome`, `email`, `nome`, `password`, `ruolo`, `id_negozio`, `iva`) VALUES
-(3, b'1', 'Commerciante', 'commerciante@ccc.com', 'Commerciante', '$2a$10$.OQw5FeEJtTXQWi8A8ueTevpo0dcQAT6pCaVFGv.w7XLKh9FCnU3W', 'COMMERCIANTE', 4, NULL);
+(3, b'1', 'Commerciante', 'commerciante@ccc.com', 'Commerciante', '$2a$10$4iZv7G.ni9jTIZX9baN9hONvyv15iA0OD/MI1.TRp8Sg9h.WgVSam', 'COMMERCIANTE', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,7 +181,7 @@ CREATE TABLE `corriere` (
 --
 
 INSERT INTO `corriere` (`id`, `attivo`, `cognome`, `email`, `nome`, `password`, `ruolo`, `operativo`) VALUES
-(5, b'1', 'Corriere', 'corriere@ccc.com', 'Corriere', '$2a$10$haSNXlkIUp1gDAn4NpxI7.h0ZFfA.AVQqZGXgCGhrsuqVISx8Fpli', 'CORRIERE', b'0');
+(5, b'1', 'Corriere', 'corriere@ccc.com', 'Corriere', '$2a$10$ZypgBLFGb7Q57gw.2JiB0.Y2FWRk8dv6c220i2zP8oYiKTv6q/KIi', 'CORRIERE', b'0');
 
 -- --------------------------------------------------------
 
@@ -233,7 +233,7 @@ CREATE TABLE `interf_locker` (
 --
 
 INSERT INTO `interf_locker` (`id`, `attivo`, `cognome`, `email`, `nome`, `password`, `ruolo`, `id_locker`) VALUES
-(39, b'1', 'Andromeda', 'interfaccialockerandromeda@ccc.com', 'Locker', '$2a$10$RvQtA1/Nl/24RnBz/yps..h31Jj0ZDmIL28KGMWyCXt2kfbhIPR6S', 'INTLOCKER', 8);
+(39, b'1', 'Andromeda', 'interflockadromeda@ccc.com', 'Locker', '$2a$10$B6A8dzJw3sMxDHaxMDFkPu605GPRcT/kx3418.ylXNRzPOLtPmR52', 'INTLOCKER', 8);
 
 -- --------------------------------------------------------
 
@@ -278,7 +278,7 @@ CREATE TABLE `magazziniere` (
 --
 
 INSERT INTO `magazziniere` (`id`, `attivo`, `cognome`, `email`, `nome`, `password`, `ruolo`) VALUES
-(6, b'1', 'Magazziniere', 'magazziniere@gmail.com', 'Magazziniere', '$2a$10$UvM1Jr9Em8Tua3Srrvhq..tArjIGgOjpK4E1WoxYzBXctShvwdBxW', 'MAGAZZINIERE');
+(6, b'1', 'Magazziniere', 'magazziniere@ccc.com', 'Magazziniere', '$2a$10$6NbgqWry.F54Vub6hRO/dOrLrWxHlqXOcAgCy6S0PYydcZLHfaF7K', 'MAGAZZINIERE');
 
 -- --------------------------------------------------------
 

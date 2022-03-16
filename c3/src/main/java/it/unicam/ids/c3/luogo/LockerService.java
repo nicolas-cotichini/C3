@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.encrypt.Encryptors;
+import org.springframework.security.crypto.encrypt.TextEncryptor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,6 +28,11 @@ public class LockerService {
 	CellaRepository cellaRep;
 	@Autowired
 	OrdineService ordineSer;
+
+	@Value("${encryptor.secret}")
+	private String salt;
+
+	private String pss = "generalPass";
 
 	/**
 	 * Crea un nuovo Locker
@@ -55,12 +63,20 @@ public class LockerService {
 	}
 
 	/**
-	 * Genera una password numerica di lunghezza 8 caratteri
+	 * Genera una password alfanumerica di lunghezza 8 caratteri
 	 * 
 	 * @return String password generata
 	 */
 	private String generaPassword() {
-		return RandomStringUtils.randomNumeric(8);
+		String password = RandomStringUtils.randomAlphanumeric(8);
+		TextEncryptor encryptor = Encryptors.text(pss, salt);
+		// random password alfanumerica e salt hex-encoded
+		return encryptor.encrypt(password);
+	}
+
+	private String decriptaPassword(String password) {
+		TextEncryptor decryptor = Encryptors.text(pss, salt);
+		return decryptor.decrypt(password);
 	}
 
 	/**
@@ -297,7 +313,7 @@ public class LockerService {
 			Iterable<Cella> x = cellaRep.findAllByIdLocker(idLocker);
 			for (Cella cella : x) {
 				if (idOrdine.equals(cella.getIdOrdine())) {
-					listaPassword.add(cella.getPassword());
+					listaPassword.add(decriptaPassword(cella.getPassword()));
 				}
 			}
 			return listaPassword;
@@ -324,7 +340,7 @@ public class LockerService {
 		Long idOrdine;
 		Long idCella;
 		for (Cella cella : celleLocker) {
-			if (cella.getPassword().equals(password)) {
+			if (decriptaPassword(cella.getPassword()).equals(password)) {
 				idOrdine = cella.getIdOrdine();
 				idCella = cella.getId();
 				if (ordineSer.getOrdineById(idOrdine).getStato().equals(StatoOrdine.CONSEGNATO)) {
@@ -344,14 +360,15 @@ public class LockerService {
 	 * Aggiorna lo stato del Locker indicando che ora ha un profilo interfaccia
 	 * 
 	 * @param Long idLocker
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public void setInterfaccia(Long idLocker) throws Exception {
 		Locker locker = lockerRep.findById(idLocker).orElseThrow();
 		if (!locker.getInterfaccia()) {
 			locker.setInterfaccia();
 			lockerRep.save(locker);
-		} else throw new Exception("Questo locker ha già un profilo");
+		} else
+			throw new Exception("Questo locker ha già un profilo");
 	}
 
 	/**
