@@ -23,7 +23,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
 
@@ -51,37 +51,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-	 
-    // configurazione Cors per poter consumare le api restful con richieste ajax
-    @Bean
-    CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-        configuration.setAllowedMethods(Arrays.asList("POST, PUT, GET, OPTIONS, DELETE"));
-        configuration.addAllowedHeader("*");
-        configuration.addAllowedMethod("*");
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
-    }
-	 
+	// configurazione Cors per poter consumare le api restful con richieste ajax
+	@Bean
+	CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration configuration = new CorsConfiguration();
+		configuration.setAllowedOrigins(Arrays.asList("https://localhost:3000"));
+		configuration.setAllowedMethods(Arrays.asList("POST, PUT, GET, OPTIONS, DELETE"));
+		configuration.addAllowedHeader("*");
+		configuration.addAllowedMethod("*");
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", configuration);
+		return source;
+	}
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().csrf().disable()
-			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-			.authorizeRequests()
-			.antMatchers("/auth/login").permitAll()
-			.antMatchers("/cliente/registrazione").permitAll()
-			.antMatchers("/amministratore/**").hasAuthority("ROLE_AMMINISTRATORE")
-			.antMatchers("/cliente/ordine").hasAuthority("ROLE_CLIENTE")
-			.antMatchers("/cliente/*").hasAuthority("ROLE_CLIENTE")
-			.antMatchers("/commerciante/**").hasAuthority("ROLE_COMMERCIANTE")
-			.antMatchers("/corriere/**").hasAuthority("ROLE_CORRIERE")
-			.antMatchers("/locker/**").hasAuthority("ROLE_INTLOCKER")
-			.antMatchers("/magazziniere/**").hasAuthority("ROLE_MAGAZZINIERE")
-			
-			.anyRequest().authenticated();
+		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+				.antMatchers("/auth/login").permitAll().antMatchers("/cliente/registrazione").permitAll()
+				.antMatchers("/amministratore/**").hasAuthority("ROLE_AMMINISTRATORE").antMatchers("/cliente/ordine")
+				.hasAuthority("ROLE_CLIENTE").antMatchers("/cliente/*").hasAuthority("ROLE_CLIENTE")
+				.antMatchers("/commerciante/**").hasAuthority("ROLE_COMMERCIANTE").antMatchers("/corriere/**")
+				.hasAuthority("ROLE_CORRIERE").antMatchers("/locker/**").hasAuthority("ROLE_INTLOCKER")
+				.antMatchers("/magazziniere/**").hasAuthority("ROLE_MAGAZZINIERE")
+
+				.anyRequest().authenticated();
 
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 	}

@@ -31,8 +31,9 @@ public class LockerService {
 
 	@Value("${encryptor.secret}")
 	private String salt;
-
-	private String pss = "generalPass";
+	
+	@Value("${encryptor.password}")
+	private String pss;
 
 	/**
 	 * Crea un nuovo Locker
